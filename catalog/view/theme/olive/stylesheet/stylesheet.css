@@ -1,0 +1,118 @@
+/* Estilos para o menu */
+#menu .navbar-nav > li > a {
+  position: relative;
+  padding-right: 30px; /* Espaçamento para o ícone */
+}
+
+#menu .navbar-nav > li > a::after {
+  content: '\f107'; /* Ícone de seta para baixo (pode ser substituído pelo ícone desejado) */
+  font-family: 'FontAwesome';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#menu .navbar-nav .dropdown-menu .dropdown-inner {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#menu .navbar-nav .dropdown-menu .dropdown-inner ul {
+  flex: 0 0 calc(25% - 20px); /* Layout de 4 colunas */
+  margin: 10px;
+  padding: 0;
+}
+
+#menu .navbar-nav .dropdown-menu .dropdown-inner ul li a {
+  display: block;
+  padding: 5px 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+#menu .navbar-nav .dropdown-menu .dropdown-inner ul li a:hover {
+  background-color: #f5f5f5;
+}
+
+#menu .navbar-nav .dropdown-menu .dropdown-inner ul li ul.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  min-width: 200px;
+  z-index: 9999;
+}
+
+#menu .navbar-nav .dropdown-menu .dropdown-inner ul li:hover > ul.dropdown-menu {
+  display: block;
+}
+
+#menu .navbar-nav .dropdown-menu .dropdown-inner ul li.submenu-link a::after {
+  content: '\f105'; /* Ícone de seta para a direita (pode ser substituído pelo ícone desejado) */
+  font-family: 'FontAwesome';
+  float: right;
+}
+
+#menu .navbar-nav .dropdown-menu .see-all {
+  display: block;
+  padding: 10px;
+  text-align: right;
+  font-weight: bold;
+  color: #777;
+}
+
+/* Estilos para dispositivos menores */
+@media (max-width: 768px) {
+  #menu .navbar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #menu .navbar-header .btn-navbar {
+    margin-right: 10px;
+  }
+
+  #menu .navbar-collapse {
+    display: none;
+  }
+
+  #menu .navbar-collapse.collapsing {
+    display: block;
+  }
+
+  #menu .navbar-nav {
+    width: 100%;
+    float: none;
+  }
+
+  #menu .navbar-nav > li {
+    width: 100%;
+  }
+
+  #menu .navbar-nav > li > a {
+    padding-right: 30px;
+    position: relative;
+  }
+
+  #menu .navbar-nav > li > a::after {
+    content: '\f107'; /* Ícone de seta para baixo */
+    font-family: 'FontAwesome';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  #menu .navbar-nav .dropdown-menu .dropdown-inner ul {
+    flex: 0 0 100%; /* Layout de 1 coluna */
+    margin: 10px 0;
+  }
+
+  #menu .navbar-nav .dropdown-menu .dropdown-inner ul li.submenu-link a::after {
+    content: '\f105'; /* Ícone de seta para a direita */
+    font-family: 'FontAwesome';
+    float: none;
+  }
+}

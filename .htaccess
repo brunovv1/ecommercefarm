@@ -1,0 +1,131 @@
+## Para utilizar o recurso de alias para URL, você precisa estar executando o Apache com o mod_rewrite ativado.
+## Para dúvidas visite: https://forum.opencartbrasil.com.br
+Options +SymLinksIfOwnerMatch
+
+## A linha abaixo evita a listagem de pastas e arquivos nos diretórios quando acessados diretamente pelo navegador.
+Options -Indexes
+
+## As linhas abaixo evitam o acesso direto a arquivos críticos do OpenCart.
+<FilesMatch "(?i)((\.tpl|\.twig|\.ini|\.log|(?<!robots)\.txt))">
+ Require all denied
+## Se estiver utilizando o Apache 2.2 ou versão inferior, acrescente o # na frente da linha "Require all denied" que fica acima, e remova o # das duas linhas abaixo:
+# Order deny,allow
+# Deny from all
+</FilesMatch>
+
+## Abaixo iniciamos as configurações para URL amigável.
+RewriteEngine On
+
+## Se as pastas e arquivos do OpenCart não estiverem no diretório raiz, adicione na linha abaixo o nome do diretório que as pastas e arquivos estão, como: /loja/
+RewriteBase /
+RewriteRule ^sitemap.xml$ index.php?route=extension/feed/google_sitemap [L]
+RewriteRule ^googlebase.xml$ index.php?route=extension/feed/google_base [L]
+RewriteRule ^system/storage/(.*) index.php?route=error/not_found [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !.*\.(ico|gif|jpg|jpeg|png|webp|js|css)
+RewriteRule ^([^?]*) index.php?_route_=$1 [L,QSA]
+
+## Abaixo estão comandos que podem ser utilizados em algumas hospedagens para alterar as configurações do PHP.
+## Se você receber um erro "Internal Server Error 500" após remover o # de qualquer uma das linhas abaixo, basta adicionar o # novamente na frente da linha.
+## Algumas hospedagens só permitem alterações nas configurações do PHP através de arquivos php.ini ou .user.ini, e outras somente através de painel próprio.
+## Em alguns casos a única maneira de alterar as configurações do PHP é entrando em contato com o susporte de sua hospedagem.
+
+## 1. Se o seu carrinho só está permitindo um produto de cada vez, é possível que o register_globals esteja ativado, para desativá-lo remova o # da linha abaixo:
+# php_flag register_globals off
+
+## 2. Se a sua hospedagem estiver com a função magic_quotes ativada, para desativá-la remova o # da linha abaixo:
+ php_flag magic_quotes_gpc Off
+
+## 3. Se você não estiver conseguindo enviar arquivos grandes por upload através da loja, remova o # da linha abaixo:
+ php_value upload_max_filesize 100M
+
+## 4. Se você tem muitas opções nos produtos ou está recebendo erros ao tentar salvar formulários na loja, remova o # da linha abaixo:
+ #php_value post_max_size 100M
+
+# 5. Se você tem muitas opções nos produtos ou está recebendo erros ao tentar salvar formulários na loja, remova o # da linha abaixo:
+# php_value max_execution_time 360
+
+## 6. Se você tem muitas opções nos produtos ou está recebendo erros ao tentar salvar formulários na loja, remova o # da linha abaixo:
+# php_value max_input_time 200
+
+## 7. Para desabilitar as limitações do open_basedir que pode ocasionar erros com sessões, remova o # da linha abaixo:
+# php_admin_value open_basedir none
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE image/svg+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/atom_xml
+AddOutputFilterByType DEFLATE application/x-javascript
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-httpd-php
+AddOutputFilterByType DEFLATE application/x-httpd-fastphp
+AddOutputFilterByType DEFLATE application/x-httpd-eruby
+AddOutputFilterByType DEFLATE text/html
+
+SetOutputFilter DEFLATE
+
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+
+BrowserMatch ^Mozilla/4.0[678] no-gzip
+
+BrowserMatch ^HMSI[E] !no-gzip !gzip-only-text/html
+
+SetEnvIfNoCase Request_URI .(?:gif|jpe?g|png)$ no-gzip dont-vary
+</IfModule>
+
+
+#Força a utilizar Cache-Control e Expires header
+<IfModule mod_headers.c>
+Header unset ETag
+</IfModule>
+ FileETag None
+<IfModule mod_expires.c>
+ExpiresActive on
+ExpiresDefault "access plus 1 month"
+ExpiresByType text/cache-manifest "access plus 0 seconds"
+# Html
+ExpiresByType text/html "access plus 0 seconds"
+# Data
+ExpiresByType text/xml "access plus 0 seconds"
+ExpiresByType application/xml "access plus 0 seconds"
+ExpiresByType application/json "access plus 0 seconds"
+# Feed
+ExpiresByType application/rss+xml "access plus 1 hour"
+ExpiresByType application/atom+xml "access plus 1 hour"
+# Favicon
+ExpiresByType image/x-icon "access plus 1 week"
+# Media: images, video, audio
+ExpiresByType image/gif "access plus 1 month"
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType image/jpg "access plus 1 month"
+ExpiresByType image/jpeg "access plus 1 month"
+ExpiresByType video/ogg "access plus 1 month"
+ExpiresByType audio/ogg "access plus 1 month"
+ExpiresByType video/mp4 "access plus 1 month"
+ExpiresByType video/webm "access plus 1 month"
+# HTC files
+ExpiresByType text/x-component "access plus 1 month"
+# Webfonts
+ExpiresByType application/x-font-ttf "access plus 1 month"
+ExpiresByType font/opentype "access plus 1 month"
+ExpiresByType application/x-font-woff "access plus 1 month"
+ExpiresByType image/svg+xml "access plus 1 month"
+ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
+# CSS / JS
+ExpiresByType text/css "access plus 1 year"
+ExpiresByType application/javascript "access plus 1 year"
+ExpiresByType application/x-javascript "access plus 1 year"
+</IfModule>
+#Força o IE a sempre carregar utilizando a última versão disponível
+<IfModule mod_headers.c>
+Header set X-UA-Compatible "IE=Edge,chrome=1"
+<FilesMatch "\.(js|css|gif|png|jpeg|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|eot|ttf|otf|woff|ico|webp|appcache|manifest|htc|crx|oex|xpi|safariextz|vcf)$" >
+Header unset X-UA-Compatible
+</FilesMatch>
+</IfModule>

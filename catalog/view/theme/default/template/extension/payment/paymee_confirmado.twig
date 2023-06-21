@@ -1,0 +1,28 @@
+{{ header }}
+<div class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  <div class="row">
+    <div id="content" class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="panel panel-info">
+            <div class="panel-body">
+              <h4><strong>{{ heading_title }}</strong></h4>
+              {{ instrucoes }}
+            </div>
+          </div>
+          <div class="buttons">
+            <div class="pull-left">
+              <a href="{{ history }}" class="btn btn-primary">{{ button_history }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ footer }}

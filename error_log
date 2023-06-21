@@ -1,0 +1,3 @@
+[21-May-2023 11:05:50 America/Sao_Paulo] PHP Warning:  Use of undefined constant HTTP_SERVER - assumed 'HTTP_SERVER' (this will throw an Error in a future version of PHP) in /home/digitala/public_html/system/config/catalog.php on line 3
+[21-May-2023 11:05:56 America/Sao_Paulo] PHP Warning:  Use of undefined constant HTTP_SERVER - assumed 'HTTP_SERVER' (this will throw an Error in a future version of PHP) in /home/digitala/public_html/system/config/catalog.php on line 3
+[21-May-2023 11:06:29 America/Sao_Paulo] PHP Warning:  Use of undefined constant HTTP_SERVER - assumed 'HTTP_SERVER' (this will throw an Error in a future version of PHP) in /home/digitala/public_html/system/config/catalog.php on line 3

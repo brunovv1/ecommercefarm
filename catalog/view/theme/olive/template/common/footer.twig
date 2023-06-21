@@ -1,0 +1,114 @@
+<footer>
+   <div class="container">
+      <div class="flex-footer">
+         {% if informations %}
+         <div class="footer-block">
+            <h5>{{ text_information }}</h5>
+            <ul class="list-unstyled">
+               {% for information in informations %}
+               <li><a href="{{ information.href }}">{{ information.title }}</a></li>
+               {% endfor %}
+               <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>
+            </ul>
+         </div>
+         {% endif %}
+         <div class="footer-block">
+            <h5>{{ text_account }}</h5>
+            <ul class="list-unstyled">
+               <li><a href="{{ account }}">{{ text_account }}</a></li>
+               <li><a href="{{ order }}">{{ text_order }}</a></li>
+               <li><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>
+               <li><a href="{{ affiliate }}">{{ text_affiliate }}</a></li>
+               <li><a href="{{ return }}">{{ text_return }}</a></li>
+            </ul>
+         </div>
+         {% if (admin_footertext_status == 1) %} 
+         <div class="footer-block">
+            <h5>{{ admin_map_text1[lang] }}</h5>
+            <ul>
+               <li>{{ admin_map_text2[lang] }}</li>
+               <li>{{ admin_map_text3[lang] }}</li>
+               <li>{{ admin_map_text4[lang] }}</li>
+               <li>{{ admin_map_text5[lang] }}</li>
+            </uL>
+         </div>
+         {% endif %}
+         <div class="footer-block">
+            <ul class="footerlink-block">
+               {% if (admin_footerlink1_status == 1) %}
+               <li><a href="{{ admin_footerlink1_text }}" target="_blank"><img src="image/{{ admin_footerlink1_img }}" /></a></li>
+               {% endif %} 
+               {% if (admin_footerlink2_status == 1) %}
+               <li><a href="{{ admin_footerlink2_text }}" target="_blank"><img src="image/{{ admin_footerlink2_img }}" /></a></li>
+               {% endif %} 
+               {% if (admin_footerlink3_status == 1) %}
+               <li><a href="{{ admin_footerlink3_text }}" target="_blank"><img src="image/{{ admin_footerlink3_img }}" /></a></li>
+               {% endif %} 
+               {% if (admin_footerlink4_status == 1) %}
+               <li><a href="{{ admin_footerlink4_text }}" target="_blank"><img src="image/{{ admin_footerlink4_img }}" /></a></li>
+               {% endif %} 
+               {% if (admin_footerlink5_status == 1) %}
+               <li><a href="{{ admin_footerlink5_text }}" target="_blank"><img src="image/{{ admin_footerlink5_img }}" /></a></li>
+               {% endif %} 
+            </ul>
+            <ul class="footerlink-block">
+               {% if (admin_footerpay1_status == 1) %}
+               <li><img src="image/{{ admin_footerpay1_img }}" /></li>
+               {% endif %} 
+               {% if (admin_footerpay2_status == 1) %}
+               <li><img src="image/{{ admin_footerpay2_img }}" /></li>
+               {% endif %} 
+               {% if (admin_footerpay3_status == 1) %}
+               <li><img src="image/{{ admin_footerpay3_img }}" /></li>
+               {% endif %} 
+               {% if (admin_footerpay4_status == 1) %}
+               <li><img src="image/{{ admin_footerpay4_img }}" /></li>
+               {% endif %} 
+               {% if (admin_footerpay5_status == 1) %}
+               <li><img src="image/{{ admin_footerpay5_img }}" /></li>
+               {% endif %} 
+            </ul>
+         </div>
+      </div>
+   </div>
+</footer>
+{% for style in styles %}
+<link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
+{% endfor %}
+{% for script in scripts %}
+<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+<script>
+   function productListImageChangeHover(element) {
+       var src = element.attr('img-aux-src');
+       var dataauxsrc = element.attr('src');
+       if (element.length > 0 && element.attr('img-aux-src')) {
+           element.attr('src', src);
+           element.attr('img-aux-src', dataauxsrc);
+       }
+   }
+</script>
+<button id="toTop" title="Top"><i class="bi bi-arrow-up"></i></button>
+<script type="text/javascript">
+   <!--
+   $(document).ready(function () {
+   var scrollTop = $("#toTop");
+   $(window).scroll(function () {
+   var topPos = $(this).scrollTop();
+   if (topPos > 300) {
+   $(scrollTop).css("display", "block");
+   } else {
+   $(scrollTop).css("display", "none");
+   }
+   });
+   $(scrollTop).click(function () {
+   $('html, body').animate({
+   scrollTop: 0
+   }, 800);
+   return false;
+   });
+   });
+   //-->
+</script>
+<!-- Theme created by made HTML5 me, visit https://madehtml5.github.io/ for more detail. Please contact us if you need support or wish to fund our work -->
+</body></html>

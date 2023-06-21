@@ -1,0 +1,121 @@
+{{ header }}
+{% if (admin_homeslide_status == 1) %} 
+<div class="homeslide">
+<div class="container">
+<div class="flex-banner">
+{% if (admin_homeslidestatus_status == 0) %} 
+<div class="flex-catwall">
+ {% if (admin_catwallitem1_status == 1) %} 
+<div class="catwall-item {% if (admin_catwallitemtype1_status == 1) %}w100{% endif %}">
+ <a href="{{ admin_catwallitem1_link[lang] }}"><img src="image/{{ admin_catwallitem1_img }}" />
+{{ admin_catwallitem1_text[lang] }}</a>
+</div>
+{% endif %} 
+ {% if (admin_catwallitem2_status == 1) %} 
+<div class="catwall-item {% if (admin_catwallitemtype2_status == 1) %}w100{% endif %}">
+ <a href="{{ admin_catwallitem2_link[lang] }}"><img src="image/{{ admin_catwallitem2_img }}" />
+{{ admin_catwallitem2_text[lang] }}</a>
+</div>
+{% endif %} 
+ {% if (admin_catwallitem3_status == 1) %} 
+<div class="catwall-item {% if (admin_catwallitemtype3_status == 1) %}w100{% endif %}">
+ <a href="{{ admin_catwallitem3_link[lang] }}"><img src="image/{{ admin_catwallitem3_img }}" />
+{{ admin_catwallitem3_text[lang] }}</a>
+</div>
+{% endif %} 
+ {% if (admin_catwallitem4_status == 1) %} 
+<div class="catwall-item {% if (admin_catwallitemtype4_status == 1) %}w100{% endif %}">
+<a href="{{ admin_catwallitem4_link[lang] }}"><img src="image/{{ admin_catwallitem4_img }}" />
+{{ admin_catwallitem4_text[lang] }}</a>
+</div>
+{% endif %} 
+ {% if (admin_catwallitem5_status == 1) %} 
+<div class="catwall-item {% if (admin_catwallitemtype5_status == 1) %}w100{% endif %}">
+ <a href="{{ admin_catwallitem5_link[lang] }}"><img src="image/{{ admin_catwallitem5_img }}" />
+{{ admin_catwallitem5_text[lang] }}</a>
+</div>
+{% endif %} 
+ {% if (admin_catwallitem6_status == 1) %} 
+<div class="catwall-item {% if (admin_catwallitemtype6_status == 1) %}w100{% endif %}">
+<a href="{{ admin_catwallitem6_link[lang] }}"> <img src="image/{{ admin_catwallitem6_img }}" />
+{{ admin_catwallitem6_text[lang] }}</a>
+</div>
+{% endif %} 
+</div>
+<div class="banner" style="background: url('image/{{ admin_homeslide_img }}')" >
+ {% if (admin_homeslide_text_status == 1) %} 
+<div class="banner-text">
+<h3>{{ admin_homeslide_title[lang] }}</h3>
+	<p>{{ admin_homeslide_text[lang] }}</p>
+</div>
+ {% endif %} 
+</div>
+   {% else %}
+<div class="banner-full" style="background: url('image/{{ admin_homeslide_img }}')" >
+ {% if (admin_homeslide_text_status == 1) %} 
+<div class="banner-text">
+<h3>{{ admin_homeslide_title[lang] }}</h3>
+	<p>{{ admin_homeslide_text[lang] }}</p>
+</div>
+ {% endif %} 
+</div>
+ {% endif %} 
+</div>
+</div>
+</div>
+ {% endif %} 
+ {% if (admin_underslide_status == 1) %} 
+<div class="underslide">
+<div class="container">
+<div class="flex-banner">
+<div class="underslide-text">
+<div class="text-right">
+<span>{{ admin_underslideleft1_text[lang] }}</span>
+<img src="image/{{ admin_underslideleft1_img }}" />
+</div>
+<div class="text-right">
+<span>{{ admin_underslideleft2_text[lang] }}</span>
+<img src="image/{{ admin_underslideleft2_img }}" />
+</div>
+</div>
+<div class="underslide-banner" >
+<img src="image/{{ admin_underslide_img }}" />
+</div>
+<div class="underslide-text">
+<div>
+<img src="image/{{ admin_underslideright1_img }}" />
+<span>{{ admin_underslideright1_text[lang] }}</span>
+</div>
+<div>
+<img src="image/{{ admin_underslideright2_img }}" />
+<span>{{ admin_underslideright2_text[lang] }}</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endif %} 
+<div id="common-home" class="container-fluid">
+<div class="row">
+<div id="content" class="{{ class }}">
+{{ content_top }}
+{{ content_bottom }}
+</div>
+</div>
+</div>
+ {% if (admin_map_status == 1) %} 
+ <div class="map" style="background: url('image/{{ admin_map_img }}')" >
+<div class="container">
+<div class="map-text">
+<h3>{{ admin_map_text1[lang] }}</h3>
+<ul>
+<li>{{ admin_map_text2[lang] }}</li>
+<li>{{ admin_map_text3[lang] }}</li>
+<li>{{ admin_map_text4[lang] }}</li>
+<li>{{ admin_map_text5[lang] }}</li>
+</uL>
+</div>
+</div>
+</div>
+ {% endif %} 
+{{ footer }}

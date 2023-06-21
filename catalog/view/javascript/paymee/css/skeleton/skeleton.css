@@ -1,0 +1,251 @@
+/* Grid */
+#responsivo .column, .columns {
+  width: 100%;
+  float: left !important;
+  box-sizing: border-box !important;
+}
+/* Alerts */
+#responsivo .alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+#responsivo .alert h4 {
+  margin-top: 0;
+  color: inherit;
+}
+#responsivo .alert .alert-link {
+  font-weight: bold;
+}
+#responsivo .alert > p,
+#responsivo .alert > ul {
+  margin-bottom: 0;
+}
+#responsivo .alert > p + p {
+  margin-top: 5px;
+}
+#responsivo .alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  padding: 20px;
+}
+#responsivo .alert-warning hr {
+  border-top-color: #f7e1b5;
+}
+#responsivo .alert-warning .alert-link {
+  color: #66512c;
+}
+#responsivo .alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+#responsivo .alert-danger hr {
+  border-top-color: #e4b9c0;
+}
+#responsivo .alert-danger .alert-link {
+  color: #843534;
+}
+#responsivo .text-danger {
+  color: #a94442;
+  margin-bottom: 1rem;
+}
+#responsivo a.text-danger:hover {
+  color: #843534;
+}
+#responsivo .alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+#responsivo .alert-success hr {
+  border-top-color: #c9e2b3;
+}
+#responsivo .alert-success .alert-link {
+  color: #2b542c;
+}
+#responsivo .text-success {
+  color: #3c763d;
+  margin-bottom: 1rem;
+}
+#responsivo a.text-success:hover {
+  color: #2b542c;
+}
+/* Buttons */
+#responsivo .button,
+#responsivo button,
+#responsivo input[type="submit"],
+#responsivo input[type="reset"],
+#responsivo input[type="button"] {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+#responsivo .button:hover,
+#responsivo button:hover,
+#responsivo input[type="submit"]:hover,
+#responsivo input[type="reset"]:hover,
+#responsivo input[type="button"]:hover,
+#responsivo .button:focus,
+#responsivo button:focus,
+#responsivo input[type="submit"]:focus,
+#responsivo input[type="reset"]:focus,
+#responsivo input[type="button"]:focus {
+  color: #333;
+  border-color: #888;
+  outline: 0;
+}
+/* Forms */
+#responsivo input[type="email"],
+#responsivo input[type="number"],
+#responsivo input[type="search"],
+#responsivo input[type="text"],
+#responsivo input[type="tel"],
+#responsivo input[type="url"],
+#responsivo input[type="password"],
+#responsivo textarea,
+#responsivo select {
+  height: 38px;
+  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+/* Removes awkward default styles on some inputs for iOS */
+#responsivo input[type="email"],
+#responsivo input[type="number"],
+#responsivo input[type="search"],
+#responsivo input[type="text"],
+#responsivo input[type="tel"],
+#responsivo input[type="url"],
+#responsivo input[type="password"],
+#responsivo textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+#responsivo textarea {
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+#responsivo input[type="email"]:focus,
+#responsivo input[type="number"]:focus,
+#responsivo input[type="search"]:focus,
+#responsivo input[type="text"]:focus,
+#responsivo input[type="tel"]:focus,
+#responsivo input[type="url"]:focus,
+#responsivo input[type="password"]:focus,
+#responsivo textarea:focus,
+#responsivo select:focus {
+  border: 1px solid #33C3F0;
+  outline: 0;
+}
+#responsivo label,
+#responsivo legend {
+  display: block;
+  margin-bottom: .5rem;
+  font-weight: 600;
+}
+#responsivo fieldset {
+  padding: 0;
+  border-width: 0;
+}
+#responsivo input[type="checkbox"], 
+#responsivo input[type="radio"] { 
+  display: inline;
+}
+#responsivo label > #responsivo .label-body {
+  display: inline-block;
+  margin-left: .5rem;
+  font-weight: normal;
+}
+/* Spacing */
+#responsivo button, 
+#responsivo .button {
+  margin-bottom: 1rem;
+}
+#responsivo input, 
+#responsivo textarea, 
+#responsivo select, 
+#responsivo fieldset {
+  margin-bottom: 1rem;
+}
+#responsivo pre, 
+#responsivo blockquote, 
+#responsivo dl, 
+#responsivo figure, 
+#responsivo table, 
+#responsivo p, 
+#responsivo ul, 
+#responsivo ol, 
+#responsivo form { 
+  margin-bottom: 2.5rem;
+}
+/* Utilities */
+#responsivo .u-full-width {
+  width: 100%;
+  box-sizing: border-box;
+}
+#responsivo .u-max-full-width {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+#responsivo .u-pull-right {
+  float: right;
+}
+#responsivo .u-pull-left {
+  float: left;
+}
+/* Self Clearing Goodness */
+#responsivo .row-form:after, 
+#responsivo .u-cf {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* Media Queries */
+/* For devices smaller than 550px */
+@media (max-width: 449px) {
+  #responsivo .two.columns { width: 50% !important; }
+}
+/* For devices larger than 550px */
+@media (min-width: 550px) {
+  #responsivo .column, .columns { margin-right: 1%; }
+  #responsivo .column:first-child, #responsivo .columns:first-child { margin-left: 0; }
+  #responsivo .one.column, #responsivo .one.columns { width: 4.66666666667%; }
+  #responsivo .two.columns  { width: 19% !important; }
+  #responsivo .three.columns  { width: 22% !important; }
+  #responsivo .four.columns  { width: 30.6666666667% !important; }
+  #responsivo .five.columns  { width: 39.3333333333% !important; }
+  #responsivo .six.columns  { width: 48% !important; }
+  #responsivo .seven.columns { width: 56.6666666667% !important; }
+  #responsivo .eight.columns { width: 65.3333333333% !important; }
+  #responsivo .nine.columns { width: 74.0% !important; }
+  #responsivo .ten.columns { width: 82.6666666667% !important; }
+  #responsivo .eleven.columns { width: 91.3333333333% !important; }
+  #responsivo .twelve.columns { width: 100% !important; margin-left: 0; }
+}
+/* Larger than tablet */
+@media (min-width: 750px) {}
+/* Larger than desktop */
+@media (min-width: 1000px) {}
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}

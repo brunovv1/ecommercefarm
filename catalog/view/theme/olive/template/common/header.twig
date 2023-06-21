@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<!--[if IE 8 ]>
+<html dir="{{ direction }}" lang="{{ lang }}" class="ie8">
+   <![endif]-->
+   <!--[if IE 9 ]>
+   <html dir="{{ direction }}" lang="{{ lang }}" class="ie9">
+      <![endif]-->
+      <!--[if (gt IE 9)|!(IE)]><!-->
+      <html dir="{{ direction }}" lang="{{ lang }}">
+         <!--<![endif]-->
+         <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>{{ title }}</title>
+            <base href="{{ base }}" />
+            {% if description %}
+            <meta name="description" content="{{ description }}" />
+            {% endif %}
+            {% if keywords %}
+            <meta name="keywords" content="{{ keywords }}" />
+            {% endif %}
+            <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+            <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+            <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link href="catalog/view/theme/olive/stylesheet/stylesheet.css" rel="stylesheet">
+            {% for style in styles %}
+            <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
+            {% endfor %}
+            {% for script in scripts %}
+            <script src="{{ script }}" type="text/javascript"></script>
+            {% endfor %}
+            <script src="catalog/view/theme/olive/common.js" type="text/javascript"></script>
+            {% for link in links %}
+            <link href="{{ link.href }}" rel="{{ link.rel }}" />
+            {% endfor %}
+            {% for analytic in analytics %}
+            {{ analytic }}
+            {% endfor %}
+            {% if admin_font == 0 %}		
+            {% set regfonts = ['', 'Arial', 'Verdana', 'Helvetica', 'Lucida Grande', 'Trebuchet MS', 'Times New Roman', 'Tahoma', 'Georgia'] %}
+            {% if admin_font not in regfonts %}
+            <link href='//fonts.googleapis.com/css?family={{ admin_font }}' rel='stylesheet' type='text/css'>
+            {% endif %}
+            {% endif %}
+            <style type="text/css">
+               {% if admin_font %}
+               {% set font = admin_font|replace({"+" : " "}) %}
+               body {font-family:{{ font }};
+               }
+               {% endif %}		
+               {% if admin_color_main %}
+               :root {
+               --main-color:  {{ admin_color_main }}!important;
+               }
+               {% endif %}
+               {% if admin_second_color %}
+               :root {
+               --second-color:  {{ admin_second_color }}!important;
+               }
+               {% endif %}
+			    {% if admin_text_color %}
+               :root {
+               --text-color:  {{ admin_text_color }}!important;
+               }
+               {% endif %}
+			    {% if admin_texthover_color %}
+               :root {
+               --texthover-color:  {{ admin_texthover_color }}!important;
+               }
+               {% endif %}
+			   {% if admin_name_color %}
+               :root {
+               --name-color:  {{ admin_name_color }}!important;
+               }
+               {% endif %}
+			    {% if admin_namehover_color %}
+               :root {
+               --namehover-color:  {{ admin_namehover_color }}!important;
+               }
+               {% endif %}
+               {% if admin_custom_css %}
+               {{ admin_custom_css }}
+               }
+               {% endif %}
+               
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e5e5e5;
+  height: 30px; /* Altura reduzida para 30px */
+  padding: 5px 20px; /* Ajuste o espaçamento interno */
+}
+
+.topbar-site-favicon img {
+  width: 30px; /* Diminua o tamanho da imagem proporcionalmente */
+  height: 30px;
+}
+
+.links-gerais {
+  display: flex;
+  align-items: center;
+}
+
+.links-gerais a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  margin-left: 5px; /* Reduza a margem para um espaçamento mais compacto */
+}
+
+.links-gerais img {
+  width: 15px; /* Diminua o tamanho da imagem proporcionalmente */
+  height: 15px;
+  margin-left: 3px; /* Reduza a margem para um espaçamento mais compacto */
+}
+
+.links-gerais a:hover {
+  color: #ff0000;
+}
+
+@media (max-width: 480px) {
+  .links-gerais {
+    flex-direction: column;
+  }
+
+  .links-gerais a {
+    margin: 3px 0; /* Reduza a margem vertical para um espaçamento mais compacto */
+  }
+}
+
+
+
+
+
+
+   
+            </style>
+         </head>
+<body>
+<div class="topbar">
+  <div class="topbar-site-favicon">
+    <a href="https://www.digitalabmedia.com.br/" class="galeno-farma-link">
+      <img src="/image/cache/catalog/lojagaleno/favicon-45x45.png" alt="Farmácia Galeno">
+    </a>
+  </div>
+  <div class="links-gerais">
+    <a href="https://api.whatsapp.com/send?phone=86988511762" class="recipe">
+      <img src="image/cache/catalog/lojagaleno/icones/prescricao.png" alt="receita">
+      Manipule suas receitas
+      <img src="image/cache/catalog/lojagaleno/icones/telefone.png">
+    </a>
+  </div>
+</div>
+
+
+</body>
+
+
+                 
+             </div>
+            <header>
+               <div class="container">
+                  <div class="row">
+                     <div class="col-xs-5">{{ search }}</div>
+                     <div class="col-xs-2">
+                        <div id="logo">
+                           {% if logo %}<a href="{{ home }}"><img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive" /></a>{% else %}
+                           <h1><a href="{{ home }}">{{ name }}</a></h1>
+                           {% endif %}
+                        </div>
+                     </div>
+                     <div class="col-xs-5">
+                        <ul class="header-list">
+                        <li class="dropdown">
+                           <a href="{{ account }}" title="{{ text_account }}" class="dropdown-toggle account-link" data-toggle="dropdown"><i class="bi bi-person-video"></i></a>
+                           <ul class="dropdown-menu dropdown-menu-right">
+                              {% if logged %}
+                              <li><a href="{{ account }}">{{ text_account }}</a></li>
+                              <li><a href="{{ order }}">{{ text_order }}</a></li>
+                              <li><a href="{{ transaction }}">{{ text_transaction }}</a></li>
+                              <li><a href="{{ download }}">{{ text_download }}</a></li>
+                              <li><a href="{{ logout }}">{{ text_logout }}</a></li>
+                              {% else %}
+                              <li><a href="{{ register }}">{{ text_register }}</a></li>
+                              <li><a href="{{ login }}">{{ text_login }}</a></li>
+                              {% endif %}
+                           </ul>
+                        </li>
+                        {{ cart }}
+                     </div>
+                  </div>
+               </div>
+               {% if categories %}
+               <div class="container">
+                  <nav id="menu" class="navbar">
+                     <div class="navbar-header"><span id="category" class="visible-xs">{{ text_category }}</span>
+                        <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
+                     </div>
+                     <div class="collapse navbar-collapse navbar-ex1-collapse">
+                        <ul class="nav navbar-nav">
+                           {% for category in categories %}
+                           {% if category.children %}
+                           <li class="dropdown">
+                              <a href="{{ category.href }}" class="dropdown-toggle main-link" >{{ category.name }} <i class="bi bi-chevron-down"></i></a>
+                              <div class="dropdown-menu">
+                                 <div class="dropdown-block">
+                                    {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
+                                    {% for child in children %} 
+                                    <ul class="list-unstyled">
+                                       {% if (child['children']) %}
+                                       <li class="dropdown-submenu">
+                                          <a href="{{ child['href'] }}" class="submenu-title">{{ child['name'] }}</a>
+                                          <ul class="list-unstyled menu-child">
+                                             {% for child in child['children'] %} 
+                                             <li><a href="{{ child['href'] }}">{{ child['name'] }}</a></li>
+                                             {% endfor %} 
+                                          </ul>
+                                       </li>
+                                       {% else %} 
+                                       <li><a href="{{ child['href'] }}" class="submenu-title">{{ child['name'] }}</a></li>
+                                       {% endif %} 
+                                    </ul>
+                                    {% endfor %} 
+                                    {% endfor %}
+                                 </div>
+                              </div>
+                           </li>
+                           {% else %}
+                           <li><a href="{{ category.href }}">{{ category.name }}</a></li>
+                           {% endif %}
+                           {% endfor %}
+                        </ul>
+                     </div>
+                  </nav>
+               </div>
+               {% endif %} 
+            </header>

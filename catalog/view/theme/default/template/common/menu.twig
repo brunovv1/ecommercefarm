@@ -1,0 +1,165 @@
+{% if categories %}
+<div class="container">
+  <nav id="menu" class="navbar">
+    <div class="navbar-header"><span id="category" class="visible-xs">{{ text_category }}</span>
+      <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        {% for category in categories %}
+        {% if category.children %}
+        <li class="dropdown">
+          <a href="{{ category.href }}" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="category-icon"><i class="fa fa-folder-open"></i></span>
+            {{ category.name }}
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-inner">
+              {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
+              <ul class="list-unstyled">
+                {% for child in children %} 
+                {% if child['children'] %}
+                <li class="submenu-link">
+                  <a href="{{ child['href'] }}" class="dropdown-toggle">{{ child['name'] }}<i class="fa fa-angle-right"></i></a>
+                  <ul class="dropdown-menu sub-block">
+                    {% for child in child['children'] %} 
+                    <li><a href="{{ child['href'] }}">{{ child['name'] }}</a></li>
+                    {% endfor %} 
+                  </ul>
+                </li>
+                {% else %} 
+                <li><a href="{{ child['href'] }}">{{ child['name'] }}</a></li>
+                {% endif %} 
+                {% endfor %} 
+              </ul>
+              {% endfor %}
+            </div>
+            <a href="{{ category.href }}" class="see-all">{{ text_all }} {{ category.name }}</a>
+          </div>
+        </li>
+        {% else %}
+        <li><a href="{{ category.href }}">{{ category.name }}</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </nav>
+</div>
+{% endif %}
+
+<style>
+.container {
+  /* Estilos do container */
+}
+
+#menu {
+  /* Estilos do menu */
+}
+
+.navbar-header {
+  /* Estilos do header */
+}
+
+.navbar-nav > li {
+  position: relative;
+}
+
+.navbar-nav > li > .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 9999;
+  display: none;
+  min-width: 200px;
+}
+
+.navbar-nav > li:hover > .dropdown-menu {
+  display: block;
+}
+
+.navbar-nav > li > .dropdown-menu > .dropdown-inner > ul > li:hover > .dropdown-menu {
+  display: block;
+}
+
+.category-icon {
+  margin-right: 5px;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+  background-color: #f8f8f8;
+  text-decoration: none;
+}
+
+.dropdown-toggle .fa {
+  margin-left: 5px;
+}
+
+@media (max-width: 767px) {
+  .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 9999;
+    display: none;
+    width: 100%;
+    background-color: #f8f8f8;
+    padding: 15px;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-collapse.show {
+    display: block;
+  }
+
+  .navbar-nav > li {
+    position: relative;
+  }
+
+  .navbar-nav > li > .dropdown-menu {
+    position: static;
+    min-width: 0;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: visibility 0s linear 0.3s, opacity 0.3s linear;
+  }
+
+  .navbar-nav > li:hover > .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    max-height: 1000px;
+    transition-delay: 0s, 0s;
+  }
+
+  .dropdown-menu.sub-block {
+    padding-left: 15px;
+  }
+
+  .dropdown-menu.sub-block .dropdown-menu {
+    display: none;
+  }
+
+  .navbar-nav > li > .dropdown-menu > .dropdown-inner > ul > li:hover > .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    max-height: 1000px;
+    transition-delay: 0s, 0s;
+  }
+
+  .see-all {
+    display: block;
+    margin-top: 10px;
+  }
+}
+</style>
